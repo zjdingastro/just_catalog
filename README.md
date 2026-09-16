@@ -1,2 +1,2 @@
 # just_catalog
-Generate JUST catalog from fiber assignment.
+Generate LSS catalog from the fiber assigned galaxy mock for JUST.
