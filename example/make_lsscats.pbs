@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -N fa2full
+#PBS -m abe
+#PBS -l nodes=1:ppn=4
+#PBS -l mem=32GB
+#PBS -l walltime=10:00
+#PBS -q normal
+##PBS -q small
+#PBS -o ./stdout/${PBS_JOBNAME}.o${PBS_JOBID}
+#PBS -e ./stdout/${PBS_JOBNAME}.e${PBS_JOBID}
+
+cd "$PBS_O_WORKDIR" || exit 1
+echo "$(pwd)"
+
+module load miniconda/miniconda3
+source activate just_fba_env
+
+dir_root="/home/zjding/fiberassignment/JUST/BGS_mock/Junyu_mock/fba/output/v1/3passes/11987tiles_0.0ra90.0_0.0dec90.0/"
+filename="fba_tile_{tid}.fits"
+
+seed=100
+
+time python make_LSScats_test.py --seed ${seed} --dir_root ${dir_root} --fba_filename ${filename} --odir ./

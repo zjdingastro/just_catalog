@@ -1,0 +1,5 @@
+# dependencies for making LSS catalogs from fiber-assigned targets
+numpy>=1.26.4
+matplotlib>=3.3.5
+healpy>=1.16.5
+astropy>=5.2.2
